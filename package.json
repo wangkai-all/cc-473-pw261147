@@ -1,0 +1,16 @@
+{
+  "name": "schema-registry-compat",
+  "version": "1.0.0",
+  "private": true,
+  "description": "模式注册表与生产者/消费者兼容性检查（向后/向前/全兼容）",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node --test test/",
+    "seed": "node scripts/seed-demo.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT"
+}

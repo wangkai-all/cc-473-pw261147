@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>模式注册表 · 兼容性控制台</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <h1>模式注册表控制台</h1>
+      <span class="meta" id="recovery-meta">恢复信息加载中…</span>
+      <span class="spacer"></span>
+      <div class="refresh-bar">
+        <label class="field" style="grid-template-columns: auto auto; align-items: center">
+          自动刷新
+          <select id="refresh-interval">
+            <option value="0">关闭</option>
+            <option value="5000">5 秒</option>
+            <option value="10000" selected>10 秒</option>
+            <option value="30000">30 秒</option>
+          </select>
+        </label>
+        <button class="secondary" id="btn-refresh" type="button">立即刷新</button>
+        <button class="secondary" id="btn-theme" type="button">切换主题</button>
+      </div>
+    </header>
+
+    <main>
+      <div class="subject-head">
+        <h2>主题</h2>
+        <select id="subject-select" style="min-width: 220px"></select>
+        <form id="create-subject-form" style="display: flex; gap: 8px; align-items: end">
+          <label class="field">
+            新建主题
+            <input name="name" placeholder="例如 order-events" required />
+          </label>
+          <label class="field">
+            默认策略
+            <select name="mode">
+              <option value="BACKWARD">BACKWARD 向后</option>
+              <option value="FORWARD">FORWARD 向前</option>
+              <option value="FULL">FULL 全兼容</option>
+              <option value="NONE">NONE 不限制</option>
+            </select>
+          </label>
+          <button type="submit">创建</button>
+        </form>
+      </div>
+
+      <div id="subject-view"></div>
+    </main>
+
+    <div id="toast-host"></div>
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>
